@@ -1,0 +1,63 @@
+BURNOUT DETECTION SYSTEM - Learning Notes
+==========================================
+
+Project Started: December 29, 2025
+
+------------------------------------------
+SETUP
+------------------------------------------
+- Created virtual environment with: python -m venv venv
+- Virtual environment = isolated space for this project's packages
+- Activated with: venv\Scripts\activate
+- (venv) at the start of terminal means it's active
+
+------------------------------------------
+NLP BASICS
+------------------------------------------
+- NLP = Natural Language Processing
+- Teaches computers to understand human text
+- We use a PRE-TRAINED model (someone else already trained it)
+- Model reads text → outputs emotions with percentages
+
+------------------------------------------
+FIRST NLP TEST - SUCCESS
+------------------------------------------
+- I made a test_nlp file to see how the pretrained model works
+- "exhausted from work..." → sadness: 87%
+- "got promoted, so happy..." → joy: 97%
+- The model correctly detects emotions from text!
+- This is the "brain" of our burnout system
+
+------------------------------------------
+ANALYSIS ENGINE - PART 1
+------------------------------------------
+- class = blueprint for creating objects
+- __init__ = runs automatically when object is created
+- self = refers to the object (like "this" in C#)
+- self.classifier = stores the model so we can use it later
+- pipeline() = HuggingFace shortcut to load AI models
+
+------------------------------------------
+STRESS & CLAMPING IN ANALYZE FUNCTION
+------------------------------------------
+Stress contribution:
+- (stress_level - 5) * 5
+- Level 5 = neutral (0 points)
+- Below 5 = negative (reduces burnout)
+- Above 5 = positive (increases burnout)
+
+Clamping:
+- max(0, min(100, score))
+- Ensures score stays between 0-100
+- min() caps the top at 100
+- max() caps the bottom at 0
+
+------------------------------------------
+QUESTIONS I HAD
+------------------------------------------
+(write any questions that come up as we build)
+
+------------------------------------------
+THINGS I WANT TO REMEMBER FOR INTERVIEWS
+------------------------------------------
+(we'll fill this as we go)
