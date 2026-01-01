@@ -53,6 +53,14 @@ Clamping:
 - max() caps the bottom at 0
 
 ------------------------------------------
+WHAT IS SELF?
+------------------------------------------
+- self = the object itself (like "this" in C#)
+- Lets functions access the object's data
+- self.classifier = "my classifier"
+- Every method in a class needs self as first parameter
+
+------------------------------------------
 QUESTIONS I HAD
 ------------------------------------------
 (write any questions that come up as we build)
