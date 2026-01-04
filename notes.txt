@@ -61,6 +61,81 @@ WHAT IS SELF?
 - Every method in a class needs self as first parameter
 
 ------------------------------------------
+API BASICS
+------------------------------------------
+API = Application Programming Interface
+- A way for different programs to talk to each other
+- Frontend sends request → API → calls Analysis Engine → returns result
+
+Why do we need it?
+- Without API: have to open Python, import class, call function manually
+- With API: anyone can send request to a URL and get results back
+- The frontend dashboard will use this to communicate with our analysis engine
+
+Flow:
+User → Frontend (Dashboard) → HTTP Request → API → Analysis Engine → Response → Frontend → User
+
+------------------------------------------
+FASTAPI
+------------------------------------------
+FastAPI = Python framework for building APIs
+- Fast to write
+- Fast to run  
+- Very popular in industry
+
+Packages installed:
+- fastapi = the framework
+- uvicorn = the server that runs our API
+
+## The Flow
+User sends POST request with JSON:
+{
+    "text": "I'm exhausted...",
+    "activities": ["Overtime Work"],
+    "sleep_hours": 5,
+    "stress_level": 8
+}
+        ↓
+FastAPI validates it against JournalEntry
+        ↓
+Calls analyzer.analyze() with the data
+        ↓
+Returns the result as JSON
+
+------------------------------------------
+DATABASE
+------------------------------------------
+Why a database?
+- Without it: analyze entry, return result, data is gone forever
+- With it: save every entry, track trends over time, show history
+
+SQLite:
+- Built into Python
+- Stores data in a single file (burnout_tracker.db)
+- No server setup required
+
+New imports:
+- sqlite3 = Python library to work with SQLite
+- datetime = to record when entries were created
+- Path = to handle file paths cleanly
+
+------------------------------------------
+DATABASE CONCEPTS
+------------------------------------------
+conn (connection):
+- Like a library card
+- Opens database file
+- Manages the session
+- Use conn.commit() to save changes
+- Use conn.close() to disconnect
+
+cursor:
+- Like a librarian
+- Executes SQL commands
+- Fetches results
+- cursor.execute("SQL HERE")
+
+------------------------------------------
 QUESTIONS I HAD
 ------------------------------------------
 (write any questions that come up as we build)
@@ -68,4 +143,3 @@ QUESTIONS I HAD
 ------------------------------------------
 THINGS I WANT TO REMEMBER FOR INTERVIEWS
 ------------------------------------------
-(we'll fill this as we go)
